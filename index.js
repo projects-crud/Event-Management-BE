@@ -4,11 +4,14 @@ const router = require('./route/route')
 const cors = require('cors')
 
 const app = express();
-const port = 3000;
+const port = 8000;
 
 app.use(cors())
 app.options('*',cors())
 app.use(express.json());
+app.get('/',(req,res)=> {
+res.status(200).json({message:'Connected'})
+})
 app.use('/', router);
 
 mongoose.connect('mongodb+srv://Keerthika:keerthika@cluster0.gghgn0m.mongodb.net/Event')
